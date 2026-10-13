@@ -1,5 +1,5 @@
-// 自己打 zip：EPUB 和 Anki 牌组两套构建共用。
-// EPUB 要求 mimetype 第一个且不压缩，通用 zip 库不一定保证，所以每个文件可以单独指定 store。
+// EPUBとAnkiで共用するZIP生成処理。
+// EPUBのmimetypeは先頭に置き、storeで圧縮しない形式を指定する。
 import { deflateRawSync } from 'node:zlib';
 
 const crcTable = new Int32Array(256).map((_, n) => {
@@ -13,7 +13,7 @@ const crc32 = buf => {
   return (c ^ -1) >>> 0;
 };
 
-// files: [{ name, data: Buffer, store?: true }]
+// 各ファイルは名前、バッファー、圧縮しない指定を持つ。
 export function zip(files, now = new Date()) {
   const dosTime = (now.getHours() << 11) | (now.getMinutes() << 5) | (now.getSeconds() >> 1);
   const dosDate = ((now.getFullYear() - 1980) << 9) | ((now.getMonth() + 1) << 5) | now.getDate();

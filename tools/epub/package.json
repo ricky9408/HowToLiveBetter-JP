@@ -1,8 +1,10 @@
 {
-  "name": "howtolivebetter-epub",
+  "name": "howtolivebetter-jp-epub",
+  "version": "1.0.0",
+  "license": "MIT",
   "private": true,
   "type": "module",
-  "description": "把 README + book/*.md + docs/*.md 打成 EPUB",
+  "description": "日本語本文と長文をEPUBにまとめる",
   "scripts": {
     "build": "node build.mjs"
   },

@@ -1,0 +1,18 @@
+name: 日本での暮らしの内容を提案
+description: 日本の制度や外国籍の方の生活に役立つ内容を提案する
+title: "[提案] "
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: 誰がどの場面で困るか
+      description: 対象者、場面、読者が取れる行動を記載してください。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 根拠と適用条件
+      description: 日本の公式資料、確認日、地域差や例外を記載してください。既存項目との違いも示してください。
+    validations:
+      required: true

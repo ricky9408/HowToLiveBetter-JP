@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://eternity4719.github.io/HowToLiveBetter/sitemap.xml
+Sitemap: https://ricky9408.github.io/HowToLiveBetter-JP/sitemap.xml

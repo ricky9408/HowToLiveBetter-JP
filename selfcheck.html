@@ -1,450 +1,190 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>生活自查 · 高性价比人生指南</title>
-<meta name="description" content="回答一组是否题，看看书里哪些事你还没做到：哪一块漏得最多、先做哪几件、哪些一次办完就行。每条单独给出证据和出处，不汇总成「少活几年」。">
+<title>生活チェック · 日本でよりよく暮らすためのガイド</title>
+<meta name="description" content="防災、家計、情報の安全、住まい、医療と在留手続きの準備を、はい・いいえで確認します。日本語の本文と出典を読み、次にすることを整理できます。">
+<meta name="theme-color" content="#3451b2">
+<meta property="og:locale" content="ja_JP">
+<link rel="canonical" href="https://ricky9408.github.io/HowToLiveBetter-JP/selfcheck.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233451b2'/%3E%3Cpath d='M17 33l10 11 20-24' fill='none' stroke='white' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<script>(function(){try{var s=localStorage.getItem('theme');var d=s?s==='dark':matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark')}catch(e){}})();</script>
+<script>
+/* 保存が使えなくても、端末の配色設定に従います。 */
+try { const theme = localStorage.getItem('hltb-jp:theme'); document.documentElement.classList.toggle('dark',theme ? theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches); } catch { document.documentElement.classList.toggle('dark',matchMedia('(prefers-color-scheme: dark)').matches); }
+</script>
 <style>
-/* 配色、字体与 index.html 同一套（VitePress 默认主题） */
-:root{
-  --bg:#ffffff; --bg-alt:#f6f6f7; --bg-soft:#f6f6f7; --bg-mute:#f1f1f2;
-  --divider:#e2e2e3;
-  --t1:rgba(60,60,67,1); --t2:rgba(60,60,67,.78); --t3:rgba(60,60,67,.56);
-  --brand-1:#3451b2; --brand-2:#3a5ccc; --brand-soft:rgba(100,108,255,.14);
-  --green-1:#18794e; --green-soft:rgba(16,185,129,.14);
-  --yellow-1:#915930; --yellow-soft:rgba(234,179,8,.14);
-  --red-1:#b8272c; --red-soft:rgba(244,63,94,.14);
-  --gray-1:#565a5f; --gray-soft:rgba(142,150,170,.14);
-  --font:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
-  color-scheme:light;
-}
-html.dark{
-  --bg:#1b1b1f; --bg-alt:#161618; --bg-soft:#202127; --bg-mute:#2b2b2f;
-  --divider:#2e2e32;
-  --t1:rgba(255,255,245,.86); --t2:rgba(235,235,245,.6); --t3:rgba(235,235,245,.38);
-  --brand-1:#a8b1ff; --brand-2:#5c73e7; --brand-soft:rgba(100,108,255,.16);
-  --green-1:#3dd68c; --green-soft:rgba(16,185,129,.16);
-  --yellow-1:#f9b44e; --yellow-soft:rgba(234,179,8,.16);
-  --red-1:#f66f81; --red-soft:rgba(244,63,94,.16);
-  --gray-1:#a4a8ae; --gray-soft:rgba(142,150,170,.16);
-  color-scheme:dark;
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--t1);font:15px/1.75 var(--font);-webkit-font-smoothing:antialiased}
-a{color:var(--brand-1);text-decoration:none}
-a:hover{color:var(--brand-2);text-decoration:underline;text-underline-offset:2px}
-button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
-:focus-visible{outline:2px solid var(--brand-1);outline-offset:2px;border-radius:4px}
-[hidden]{display:none!important}
-.nav{position:sticky;top:0;z-index:10;height:56px;background:var(--bg);border-bottom:1px solid var(--divider);display:flex;align-items:center;gap:12px;padding:0 24px}
-.nav .title{font-weight:600;font-size:16px;color:var(--t1)}
-.nav .title:hover{text-decoration:none}
-.nav .sp{flex:1}
-.nav .back{font-size:14px;font-weight:500}
-.wrap{max-width:760px;margin:0 auto;padding:32px 24px 96px}
-h1{font-size:28px;line-height:1.3;margin:0 0 12px;font-weight:600;letter-spacing:-.01em}
-.lead{color:var(--t2);margin:0 0 28px}
-h2{font-size:18px;font-weight:600;margin:36px 0 4px;padding-top:24px;border-top:1px solid var(--divider)}
-h2 small{font-weight:400;font-size:13px;color:var(--t3);margin-left:8px}
-.q{display:flex;align-items:center;gap:16px;padding:12px 0;border-top:1px solid var(--divider)}
-h2+.q{border-top:0}
-.q .txt{flex:1;min-width:0}
-.q .txt small{display:block;color:var(--t3);font-size:13px;line-height:1.5}
-.seg{display:inline-flex;flex:none;border:1px solid var(--divider);border-radius:8px;overflow:hidden;background:var(--bg-soft)}
-.seg button{padding:5px 12px;font-size:14px;color:var(--t2);border-left:1px solid var(--divider);white-space:nowrap;transition:background .2s,color .2s}
-.seg button:first-child{border-left:0}
-.seg button:hover{color:var(--t1)}
-.seg button[aria-pressed="true"]{background:var(--brand-soft);color:var(--brand-1);font-weight:600}
-.seg button.no[aria-pressed="true"]{background:var(--red-soft);color:var(--red-1)}
-.seg button.yes[aria-pressed="true"]{background:var(--green-soft);color:var(--green-1)}
-.bar{position:sticky;bottom:0;margin-top:32px;padding:14px 0;background:var(--bg);border-top:1px solid var(--divider);display:flex;align-items:center;gap:16px}
-.bar .prog{flex:1;color:var(--t2);font-size:14px}
-.btn{border-radius:20px;padding:0 20px;line-height:38px;font-weight:600;font-size:14px;background:var(--brand-1);color:#fff;transition:background .2s}
-html.dark .btn{color:#1b1b1f}
-.btn:hover{background:var(--brand-2)}
-.btn.ghost{background:var(--bg-mute);color:var(--t1)}
-.btn.ghost:hover{background:var(--divider)}
-.sum{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:8px 0 12px}
-.tile{background:var(--bg-soft);border-radius:10px;padding:14px 16px}
-.tile b{display:block;font-size:26px;line-height:1.2;font-variant-numeric:tabular-nums}
-.tile span{font-size:13px;color:var(--t2)}
-.tile.r3 b{color:var(--brand-1)} .tile.r2 b{color:var(--green-1)}
-.note{font-size:13.5px;color:var(--t2);background:var(--bg-soft);border-radius:8px;padding:12px 16px;margin:20px 0}
-.note b{color:var(--t1)}
-.card{border:1px solid var(--divider);border-radius:12px;padding:16px 20px;margin:12px 0;background:var(--bg)}
-.card .h{display:flex;gap:10px;align-items:baseline}
-.card .h b{flex:1;font-size:16px;font-weight:600;line-height:1.5}
-.card .h a{flex:none;font-size:13px;white-space:nowrap}
-.card .human{margin:8px 0 10px;color:var(--t1)}
-.card .cost{font-size:13.5px;color:var(--t2);margin-top:6px}
-.card .also{margin-top:10px;padding-top:10px;border-top:1px dashed var(--divider);font-size:13.5px;color:var(--t2)}
-.badges{display:flex;flex-wrap:wrap;gap:6px}
-.badge{display:inline-block;border-radius:10px;padding:0 10px;line-height:20px;font-size:12px;font-weight:600;white-space:nowrap}
-.badge.A{background:var(--green-soft);color:var(--green-1)}
-.badge.B{background:var(--yellow-soft);color:var(--yellow-1)}
-.badge.C{background:var(--gray-soft);color:var(--gray-1)}
-.badge.r3{background:var(--brand-soft);color:var(--brand-1)}
-.badge.r2{background:var(--green-soft);color:var(--green-1)}
-.badge.r1,.badge.plain{background:var(--gray-soft);color:var(--gray-1)}
-.badge.warn{background:var(--yellow-soft);color:var(--yellow-1)}
-.verdict{font-size:16px;line-height:1.85;margin:0 0 20px}
-.verdict b{font-weight:600}
-.mods{display:flex;flex-wrap:wrap;gap:8px}
-.mods button{border:1px solid var(--divider);border-radius:16px;padding:3px 14px;font-size:14px;color:var(--t2);background:var(--bg-soft)}
-.mods button[aria-pressed="true"]{border-color:var(--brand-1);background:var(--brand-soft);color:var(--brand-1);font-weight:600}
-.hbar{display:grid;grid-template-columns:8.5em 1fr 4.5em;align-items:center;gap:12px;padding:6px 0;font-size:14px}
-.hbar .nm{color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hbar .tr{height:10px;border-radius:5px;background:var(--bg-mute);overflow:hidden}
-.hbar .fl{height:100%;border-radius:0 4px 4px 0;background:var(--brand-1)}
-.hbar .v{color:var(--t2);text-align:right;font-variant-numeric:tabular-nums}
-.top3{margin:8px 0 0;padding-left:22px}
-.top3 li{margin:6px 0}
-.top3 .why{color:var(--t2);font-size:13.5px}
-.card{scroll-margin-top:72px}
-.done-list{color:var(--t2);font-size:14px;padding-left:20px}
-#status{color:var(--t2);padding:40px 0;text-align:center}
-@media (max-width:640px){
-  .nav{padding:0 16px}
-  .wrap{padding:24px 16px 80px}
-  h1{font-size:24px}
-  .q{flex-direction:column;align-items:stretch;gap:8px}
-  .seg{align-self:flex-start}
-  .sum{grid-template-columns:repeat(2,1fr)}
-  .hbar{grid-template-columns:7.5em 1fr 3.8em;gap:8px}
-}
+:root{--bg:#fff;--soft:#f6f6f7;--line:#e2e2e3;--text:#3c3c43;--muted:#626269;--brand:#3451b2;--brand-soft:#edf0fc;--green:#18794e;--green-soft:#eaf6f0;color-scheme:light;font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,"Noto Sans JP",sans-serif}
+html.dark{--bg:#1b1b1f;--soft:#24242a;--line:#3b3b43;--text:#eeeef0;--muted:#b0b0bb;--brand:#a8b1ff;--brand-soft:#2b304c;--green:#6ed5a2;--green-soft:#213b2f;color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-size:15px;line-height:1.8}a{color:var(--brand);text-underline-offset:3px}button,select{font:inherit;cursor:pointer}button,.button{background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:7px 12px;text-decoration:none}button:hover,.button:hover{border-color:var(--brand);background:var(--brand-soft)}button:disabled{opacity:.65;cursor:wait}select{background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:8px;width:100%;max-width:440px}:focus-visible{outline:3px solid var(--brand);outline-offset:3px}[hidden]{display:none!important}h1,h2,h3{font-weight:650;line-height:1.55}h1{font-size:29px;margin:0 0 12px}h2{font-size:20px;border-top:1px solid var(--line);margin:34px 0 12px;padding-top:22px}h3{font-size:17px;margin:0 0 12px}p{margin:0 0 16px}.nav{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line);min-height:64px;padding:12px 24px;display:flex;align-items:center;gap:18px}.nav .title{color:var(--text);font-size:14px;font-weight:650;text-decoration:none;flex:1}.nav a,.nav button{font-size:13px}.wrap{max-width:850px;padding:36px 24px 70px;margin:auto}.lead{color:var(--muted)}.note{font-size:13px;color:var(--muted);background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:20px 0}.profile{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:18px;margin:24px 0}.profile label{display:block;font-size:13px;font-weight:600;margin-bottom:5px}.profile p{font-size:12px;color:var(--muted);margin:10px 0 0}.q{border-bottom:1px solid var(--line);padding:20px 0}.q p{margin:0 0 8px}.q .origin{font-size:12px;color:var(--muted);line-height:1.6;margin:10px 0 0}.seg{display:flex;flex-wrap:wrap;gap:6px}.seg button{font-size:13px;line-height:1.6;padding:6px 14px}.seg button[aria-pressed=true]{border-color:var(--brand);background:var(--brand-soft);color:var(--brand)}.seg button[data-value=yes][aria-pressed=true]{border-color:var(--green);background:var(--green-soft);color:var(--green)}.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:30px 0;padding:16px 0;border-top:1px solid var(--line);background:var(--bg)}.bar .progress{flex:1;font-size:13px;color:var(--muted);min-width:160px}.primary{background:var(--brand);color:var(--bg);border-color:var(--brand)}.primary:hover{background:var(--brand);opacity:.9}.summary{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}.tile{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:14px 18px;flex:1;min-width:130px}.tile b{display:block;font-size:26px}.tile span{font-size:12px;color:var(--muted)}.card{border:1px solid var(--line);border-radius:10px;padding:20px;margin:14px 0}.card h3{margin:0 0 10px}.card p{font-size:14px;margin-bottom:10px}.badge{display:inline-block;font-size:11px;padding:2px 8px;background:var(--soft);border:1px solid var(--line);border-radius:20px;margin:0 5px 10px 0;color:var(--muted)}.card details{font-size:12px;border-top:1px dashed var(--line);padding-top:10px;overflow-wrap:anywhere}.card summary{cursor:pointer;color:var(--muted)}.card .sources{padding-top:10px}.done-list{padding-left:22px;font-size:14px}.done-list li{margin:8px 0}.storage{font-size:12px;color:var(--muted)}#status{padding:32px 0;color:var(--muted)}.footer{margin-top:40px;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.footer a{margin-right:12px}.focus-line{margin-top:18px}.skip{position:fixed;top:-100px;left:12px;z-index:30;background:var(--bg);padding:8px}.skip:focus{top:8px}
+@media(max-width:600px){.nav{padding:12px 16px;flex-wrap:wrap;gap:8px}.nav .title{font-size:12px;flex-basis:100%}.wrap{padding:26px 18px 40px}h1{font-size:25px}.card{padding:16px}.tile{min-width:120px}.bar .progress{flex-basis:100%}.q{padding:18px 0}.seg button{padding:7px 11px}}
 </style>
 </head>
 <body>
-<header class="nav">
-  <a class="title" href="./">高性价比人生指南</a>
-  <span class="sp"></span>
-  <a class="back" href="./">回检索页</a>
-</header>
-<main class="wrap">
-  <div id="status">正在读取正文 …</div>
-
+<a href="#main" class="skip">本文へ移動</a>
+<header class="nav"><a class="title" href="./">日本でよりよく暮らすためのガイド</a><a id="search-link" href="./">助言を検索</a><button id="theme" type="button" aria-pressed="false">暗い配色</button></header>
+<main id="main" class="wrap">
+  <div id="status" role="status">本文を読み込んでいます…</div>
   <section id="ask" hidden>
-    <h1>生活自查</h1>
-    <p class="lead">回答下面的问题，看看书里哪些事你还没做到。结果会告诉你哪一块漏得最多、先做哪几件、哪些一次办完就行。每条单独给出证据和出处，不汇总成一个分数。</p>
+    <h1>生活チェック</h1>
+    <p class="lead">今の生活で準備できていることを確認し、次にすることを整理します。該当する場面について答えてください。まだ必要のない項目は「今は該当しない」を選べます。</p>
+    <div class="note">このチェックは健康状態や給付資格の判定ではありません。寿命や総合点は計算しません。制度の条件は国籍、居住状況、所得、在留資格などで異なります。各助言の出典と担当窓口で確認してください。</div>
+    <div class="profile"><label for="check-profile">表示する生活の選択肢</label><select id="check-profile"><option value="all">すべての方の生活</option><option value="foreign">外国籍の方として暮らす</option><option value="japanese">日本国籍の方として暮らす</option></select><p>外国籍を選ぶと、共通の項目と外国籍の方向けの項目を表示します。国籍と在留資格は別の条件です。</p><div class="focus-line"><label for="check-chapter">確認する分野</label><select id="check-chapter"><option value="">すべての分野</option></select></div></div>
+    <p id="storage-status" class="storage" hidden></p>
     <div id="qs"></div>
-    <div class="bar">
-      <span class="prog" id="prog"></span>
-      <button class="btn ghost" id="reset" type="button">清空</button>
-      <button class="btn" id="go" type="button">看结果</button>
-    </div>
+    <div class="bar"><span id="prog" class="progress" aria-live="polite"></span><button id="reset" type="button">回答を消す</button><button id="go" type="button" class="primary">次にすることを見る</button></div>
+    <p class="storage">回答はこのブラウザーに保存します。外部の解析サービスへ回答を送りません。共有の端末では、使い終わった後に回答を消してください。</p>
   </section>
-
   <section id="out" hidden>
-    <h1>自查结果</h1>
-    <p class="verdict" id="verdict"></p>
-    <div class="sum" id="sum"></div>
-    <h2>哪一块漏得最多<small>按做到的比例从低到高排</small></h2>
-    <div id="bars"></div>
+    <h1>次にすること</h1>
+    <p id="verdict" class="lead"></p>
+    <div id="sum" class="summary"></div>
     <div id="todo"></div>
-    <div class="note"><b>为什么不算「少活几年」：</b>每条的数字来自不同研究、不同人群，而且抽烟、不运动、睡得差这些习惯常常一起出现。把各条的风险乘到一起会重复计算，算出来的年数会偏大，偏多少也说不清。所以每条只给它自己那份证据。</div>
-    <h2 id="done-h">已经做到的</h2>
-    <ul class="done-list" id="done"></ul>
-    <div class="bar">
-      <span class="prog">答案只存在你这台设备的浏览器里。</span>
-      <button class="btn ghost" id="back" type="button">改答案</button>
-    </div>
+    <h2 id="done-h">確認・対応が済んだ項目</h2><ul id="done" class="done-list"></ul>
+    <div id="unanswered"></div>
+    <div class="note">未対応の項目から、今の事情に合うものをひとつ選んでください。費用と根拠はそれぞれの本文に示しています。利用できる制度や医療の必要性は、この回答だけでは決まりません。</div>
+    <div class="bar"><span class="progress">回答はこのブラウザー内に保存します。</span><button id="back" type="button">回答を見直す</button></div>
   </section>
+  <footer class="footer"><p>制度の確認基準日：2026年10月13日。最新の条件は各出典と窓口で確認してください。救急・火災は119、事件・事故の緊急通報は110です。</p><a href="./">助言の検索に戻る</a><a href="https://www.moj.go.jp/isa/guidebook_all.html" target="_blank" rel="noopener noreferrer">生活・就労ガイドブック</a><a href="https://www.caa.go.jp/policies/policy/local_cooperation/local_consumer_administration/hotline/" target="_blank" rel="noopener noreferrer">消費生活の相談は188</a></footer>
 </main>
-
-<script>
-/* 题目表。sec + key 按「第几节、标题里含哪段字」找条目，不写条号，插条目顺延时不会指歪；
-   找不到就在控制台报错并跳过这题。
-   when(p) 按基本情况决定这题问不问；also 是没做到时顺带列出的相关条目。 */
-const PROFILE = [
-  {id:'age', text:'你的年龄', opts:[['<30','30 岁以下'],['30','30–44'],['45','45–59'],['60','60 岁以上']]},
-  {id:'sex', text:'你的性别', opts:[['m','男'],['f','女']]},
-  {id:'kid', text:'家里有 4 岁以下的孩子吗', opts:[['y','有'],['n','没有']]},
+<noscript><p>生活チェックにはJavaScriptが必要です。<a href="https://github.com/ricky9408/HowToLiveBetter-JP">GitHubの日本語本文</a>をお読みいただけます。</p></noscript>
+<!-- 本文を読むスクリプト -->
+<script id="selfcheck-script">
+'use strict';
+const REPO_BLOB = 'https://github.com/ricky9408/HowToLiveBetter-JP/blob/main/';
+const $ = id => document.getElementById(id);
+/* 章と助言の題名で結びます。項目の順番が変わっても、質問の意味を保ちます。 */
+const QUESTION_DEFINITIONS = [
+  {id:'fire',sec:'1',key:'火災警報器',text:'自宅の火災警報器を点検し、逃げ道を空けていますか？'},
+  {id:'evacuation',sec:'1',key:'避難先',text:'自宅周辺の地震・津波の避難先を、実際に歩いて確認しましたか？'},
+  {id:'vaccines',sec:'1',key:'予防接種',text:'自分や家族が対象となる予防接種と、公費で受ける期限を確認しましたか？'},
+  {id:'subscriptions',sec:'5',key:'利用明細',text:'最近の利用明細を見て、使わない契約を解約しましたか？'},
+  {id:'credit',sec:'5',key:'リボ払い',text:'クレジットカードのリボ払いの設定と残高を確認しましたか？'},
+  {id:'returns',sec:'5',key:'返品条件',text:'通販を利用するとき、返品条件を確認し、注文の最終確認画面を保存していますか？'},
+  {id:'insurance',sec:'5',key:'公的保険',text:'民間保険を契約する前に、公的保険と勤務先の保障を確認しましたか？'},
+  {id:'ambulance',sec:'13',key:'119',text:'命に関わる症状が出たとき、119番で伝える場所と状況を確認していますか？'},
+  {id:'aed',sec:'13',key:'AED',text:'反応がなく、普段どおりの呼吸がない成人を見たときの、胸骨圧迫とAEDの手順を確認しましたか？'},
+  {id:'authentication',sec:'14',key:'多要素認証',text:'重要なアカウントに多要素認証を設定しましたか？'},
+  {id:'passwords',sec:'14',key:'パスワード',text:'重要なサービスごとに、違う長いパスワードを使っていますか？'},
+  {id:'phone',sec:'14',key:'画面ロック',text:'スマートフォンに画面ロックを設定し、紛失時の操作を確認しましたか？'},
+  {id:'backup',sec:'14',key:'端末を更新',text:'端末を更新し、必要なデータを別の場所にも保存していますか？'},
+  {id:'rent',sec:'15',key:'初期費用',text:'入居前に、契約の種類と初期費用の内訳を確認しましたか？'},
+  {id:'condition',sec:'15',key:'傷を写真',text:'入居時の傷を写真に残し、退去費用の説明を確認しましたか？'},
+  {id:'hazard',sec:'15',key:'災害リスク',text:'住まいを契約する前に、その住所の災害リスクと避難経路を調べましたか？'},
+  {id:'medical-card',sec:'24',key:'資格確認書',text:'受診時に使うマイナ保険証か資格確認書を用意していますか？'},
+  {id:'medical-cost',sec:'24',key:'高額療養費',text:'医療費が高くなる前に、加入する保険の高額療養費の手続きを確認しましたか？'},
+  {id:'treatment',sec:'24',key:'代替案',text:'治療を決める前に、その目的と代替案を医師に聞いていますか？'},
+  {id:'residence-expiry',sec:'35',key:'在留期限',foreign:true,text:'在留期限とカードの有効期限を記録し、更新・変更の準備をしていますか？'},
+  {id:'address',sec:'35',key:'住所を決めた日',foreign:true,text:'中長期在留者として住所を決めた後、自治体に必要な届出をしましたか？'},
+  {id:'work-permission',sec:'35',key:'資格外活動許可',foreign:true,text:'「留学」「家族滞在」で働く場合、資格外活動許可と勤務時間の条件を確認しましたか？'},
+  {id:'foreign-insurance',sec:'35',key:'健康保険か国民健康保険',foreign:true,text:'勤務先の健康保険か国民健康保険のどちらに加入するか、窓口で確認しましたか？'},
+  {id:'reentry',sec:'35',key:'再入国',foreign:true,text:'一時帰国の前に、再入国の方法と日本へ戻る期限を確認しましたか？'},
+  {id:'foreign-disaster',sec:'35',key:'多言語の防災情報',foreign:true,text:'理解できる言語の防災情報と、自宅周辺の避難先を保存しましたか？'}
 ];
-const ageAtLeast = (p, a) => ({'<30':20,'30':30,'45':45,'60':60})[p.age] >= a;
-const GROUPS = [
-  {name:'烟、酒和槟榔', mod:'身体', qs:[
-    {sec:2, key:'戒烟，越早越好', text:'不抽烟，或者已经戒了', also:[{sec:2, key:'先去拿药'},{sec:2, key:'戒烟门诊'}]},
-    {sec:2, key:'少喝或不喝酒', text:'不喝酒，或者很少喝'},
-    {sec:2, key:'不嚼槟榔', text:'不嚼槟榔'},
-  ]},
-  {name:'吃喝', mod:'身体', qs:[
-    {sec:2, key:'含糖饮料', text:'基本不喝奶茶、可乐、果汁这类含糖饮料'},
-    {sec:2, key:'加工肉', text:'很少吃火腿、香肠、培根、午餐肉'},
-    {sec:2, key:'全谷物', text:'主食里有一部分是糙米、燕麦、全麦这类全谷物'},
-    {sec:2, key:'5 份', text:'每天吃够一斤左右的水果和蔬菜'},
-    {sec:2, key:'坚果', text:'每天吃一小把坚果'},
-    {sec:2, key:'低钠盐', text:'家里做饭用低钠盐'},
-    {sec:2, key:'滚烫', text:'热茶热汤放一放再喝，不喝滚烫的'},
-    {sec:2, key:'抽油烟机', text:'炒菜时从开火到做完一直开着抽油烟机', hint:'不做饭可以跳过'},
-  ]},
-  {name:'动、睡和晒太阳', mod:'身体', qs:[
-    {sec:2, key:'7000', text:'每天走到 7000 步左右，或者每周快走累计 150 分钟以上'},
-    {sec:2, key:'力量训练', text:'每周做点力量训练（俯卧撑、深蹲、器械都算）'},
-    {sec:2, key:'别连着坐太久', text:'不会连着坐好几个小时不起身'},
-    {sec:2, key:'每晚睡 7', text:'每晚睡 7 小时左右，作息基本固定'},
-    {sec:2, key:'晒晒太阳', text:'白天会出门见见太阳，不是整天待在屋里'},
-    {sec:2, key:'BMI', text:'体重在正常范围（BMI 20–25）', hint:'BMI = 体重(公斤) ÷ 身高(米)²'},
-    {sec:2, key:'认真刷牙', text:'每天认真刷牙、清一次牙缝，缺了牙会去补'},
-    {sec:1, key:'平衡和腿部力量', text:'练过平衡和腿部力量，浴室楼梯装了扶手防滑', when:p => ageAtLeast(p,60)},
-  ]},
-  {name:'出门和家里的安全', mod:'身体', qs:[
-    {sec:1, key:'系安全带', text:'坐车时前排后排都系安全带'},
-    {sec:1, key:'不酒驾', text:'开车不超速、不酒驾', hint:'不开车可以跳过'},
-    {sec:1, key:'戴头盔', text:'骑电动车、摩托车戴头盔并扣好', hint:'不骑可以跳过'},
-    {sec:1, key:'电动自行车不推进楼道', text:'电动车不推进楼道，不在家里充电', hint:'没有电动车可以跳过'},
-    {sec:1, key:'烟雾报警器', text:'家里装了烟雾报警器'},
-    {sec:1, key:'燃气软管', text:'燃气软管和灶具到期换过，没自己改过管道', hint:'家里不用燃气可以跳过'},
-    {sec:1, key:'野生蘑菇', text:'不采、不买、不吃野生蘑菇'},
-    {sec:1, key:'安全套', text:'和不固定的伴侣发生关系，全程用安全套', hint:'没有这种情况可以跳过'},
-    {sec:1, key:'安全座椅', text:'孩子坐车用安全座椅，不抱在怀里', when:p => p.kid === 'y'},
-    {sec:1, key:'限位器', text:'窗户和阳台装了限位器或护栏', when:p => p.kid === 'y'},
-  ]},
-  {name:'吃药', mod:'身体', qs:[
-    {sec:34, key:'对乙酰氨基酚', text:'同时吃两种感冒药或止痛药之前，会先看成分表'},
-    {sec:34, key:'普通感冒别找医生要抗生素', text:'普通感冒不找医生要抗生素'},
-    {sec:34, key:'头孢、甲硝唑', text:'吃头孢、甲硝唑期间和停药后一周不喝酒'},
-    {sec:2, key:'有高血压、高血脂', text:'有高血压、高血脂的，在按医嘱规律吃药', hint:'没有这些病可以跳过'},
-  ]},
-  {name:'检查和疫苗', mod:'身体', qs:[
-    {sec:1, key:'量血压', text:'最近一年量过血压，高了在吃药控制'},
-    {sec:1, key:'空腹血糖', text:'查过空腹血糖', when:p => ageAtLeast(p,30)},
-    {sec:1, key:'乙肝两对半', text:'查过乙肝两对半，没抗体的打了疫苗'},
-    {sec:1, key:'幽门螺杆菌', text:'查过幽门螺杆菌'},
-    {sec:1, key:'HPV 疫苗', text:'打过 HPV 疫苗', when:p => p.sex === 'f'},
-    {sec:1, key:'宫颈癌筛查', text:'做过宫颈癌筛查', when:p => p.sex === 'f' && ageAtLeast(p,30)},
-    {sec:1, key:'乳腺癌筛查', text:'近两年做过乳腺钼靶', when:p => p.sex === 'f' && ageAtLeast(p,45)},
-    {sec:1, key:'结直肠癌筛查', text:'做过结直肠癌筛查（大便潜血或肠镜）', when:p => ageAtLeast(p,45)},
-    {sec:1, key:'流感疫苗', text:'每年打流感疫苗', when:p => ageAtLeast(p,60)},
-    {sec:1, key:'带状疱疹疫苗', text:'打过带状疱疹疫苗', when:p => ageAtLeast(p,60)},
-    {sec:1, key:'肺炎球菌疫苗', text:'打过肺炎球菌疫苗', when:p => ageAtLeast(p,60)},
-    {sec:1, key:'骨密度', text:'做过骨密度检查', when:p => p.sex === 'f' && ageAtLeast(p,60)},
-  ]},
-  {name:'急救常识', mod:'急救常识', qs:[
-    {sec:13, key:'有人倒地没呼吸', text:'看到有人倒地没呼吸，知道要立刻用力按压胸口，并让旁人找 AED'},
-    {sec:13, key:'突然嘴歪', text:'知道突然嘴歪、一侧胳膊没劲要直接打 120，不自己开车去'},
-    {sec:13, key:'胸口压着疼', text:'知道胸口压着疼超过 15 分钟不缓解要打 120'},
-    {sec:13, key:'有人噎住', text:'会给噎住的人做拍背加腹部冲击'},
-    {sec:13, key:'烫伤后', text:'知道烫伤先用凉的流水冲 20 分钟，不抹牙膏酱油'},
-    {sec:13, key:'被狗、猫咬伤', text:'被猫狗咬伤或抓破皮，会先冲洗再当天去打疫苗'},
-    {sec:13, key:'误服', text:'知道误服清洁剂、农药不催吐，带上瓶子去医院'},
-    {sec:13, key:'火灾时', text:'知道火灾时贴地走、先摸门、走楼梯不坐电梯'},
-    {sec:13, key:'婴儿噎住', text:'会给不满 1 岁的婴儿做拍背加按胸', when:p => p.kid === 'y'},
-  ]},
-  {name:'精力和情绪', mod:'精力', qs:[
-    {sec:3, key:'关掉非必要通知', text:'关掉了手机上不必要的通知，工作时手机放在看不到的地方'},
-    {sec:3, key:'固定起床时间', text:'周末也基本按平时的时间起床'},
-    {sec:3, key:'下午两点以后', text:'下午两点以后不喝咖啡、浓茶'},
-    {sec:3, key:'到点就睡', text:'不会为了打游戏、刷短视频熬夜'},
-    {sec:3, key:'睡前一小时', text:'睡前一小时不看手机'},
-    {sec:3, key:'别人过得怎么样', text:'不会每天刷同龄人的动态'},
-    {sec:3, key:'49 小时', text:'每周工作时间基本不超过 50 小时', hint:'没在上班可以跳过'},
-    {sec:3, key:'学会拒绝', text:'不想接的请求能说出「不」'},
-    {sec:22, key:'定期和人见面', text:'定期和朋友家人见面，不是心情差了才找人'},
-  ]},
-  {name:'钱', mod:'钱', qs:[
-    {sec:5, key:'自动续费', text:'关掉了不用的自动续费'},
-    {sec:5, key:'个税汇算', text:'每年做个税汇算，该填的专项附加扣除都填了', hint:'没有工资收入可以跳过'},
-    {sec:5, key:'最低还款', text:'不用信用卡最低还款，不开消费分期和消费贷'},
-    {sec:5, key:'先存出', text:'存了 3 到 6 个月生活费的应急金，能随时取'},
-    {sec:5, key:'高收益', text:'看到「保本」「高收益」「稳赚」会直接走开'},
-    {sec:5, key:'家庭共济', text:'在医保 App 上办了家庭共济', hint:'没有职工医保可以跳过'},
-    {sec:5, key:'三者险', text:'开车的话，三者险买够了', hint:'没有车可以跳过'},
-    {sec:5, key:'定期寿险', text:'家里有人靠你的收入过日子，你买了定期寿险', hint:'家里没人靠你收入可以跳过'},
-    {sec:5, key:'宽基指数', text:'长期投资的钱放在宽基指数基金，而不是主动基金或个股', hint:'没有投资可以跳过'},
-  ]},
-  {name:'账号与防骗', mod:'账号与防骗', qs:[
-    {sec:14, key:'二次验证', text:'邮箱、支付、社交账号都开了二次验证'},
-    {sec:14, key:'邮箱密码单独', text:'邮箱密码单独一个，没在别的网站用过'},
-    {sec:14, key:'锁屏密码', text:'手机设了锁屏密码，SIM 卡设了 PIN 码'},
-    {sec:8, key:'通讯录里的旧号码', text:'家人视频或电话要你转账，会先挂断，用通讯录里的旧号码打回去核实'},
-    {sec:8, key:'不把银行卡', text:'从不把银行卡、手机卡、支付账号借给别人'},
-    {sec:8, key:'征信报告', text:'查过自己的征信报告'},
-    {sec:8, key:'签字前', text:'签字前会把纸看完，不在空白纸上签'},
-  ]},
-];
-const MODS = ['身体', '急救常识', '精力', '钱', '账号与防骗'];
-const modOn = m => ans['mod:' + m] !== 'off';
-
-/* 解析：和 index.html 的 parseReadme 同一套格式，只取这里用得到的字段 */
-const COST_W = { money:{'0':0,'少':1,'多':2}, time:{'少':0,'中':1,'多':2}, will:{'否':0,'些':1,'是':2} };
-function parse(md){
-  const out = []; let sec = null, e = null; let m;
-  for (const raw of md.split(/\r?\n/)){
-    const line = raw.trimEnd();
-    if ((m = /^#{1,2} (\d+)\. /.exec(line))) { sec = +m[1]; e = null; continue; }
-    if ((m = /^### (\d+)\. (.+)$/.exec(line)) && sec) { e = {sec, n:+m[1], title:m[2].trim(), human:'', cost:'', grade:'', note:''}; out.push(e); continue; }
-    if (!e) continue;
-    if ((m = /^\x3c!--\s*成本标签:\s*(.*?)\s*-->/.exec(line))){
-      for (const kv of m[1].split(/\s+/)){ const [k,v] = kv.split('='); e[{'钱':'money','时间':'time','毅力':'will','收益':'level','口径':'lens'}[k]] = v; }
-    }
-    else if ((m = /^- 说人话：(.*)$/.exec(line))) e.human = m[1];
-    else if ((m = /^- 成本：(.*)$/.exec(line))) e.cost = m[1];
-    else if ((m = /^- 证据等级：\s*([ABC])/.exec(line))) e.grade = m[1];
-    else if ((m = /^- 备注：(.*)$/.exec(line))) e.note = m[1];
+function node(tag,text,className) { const el = document.createElement(tag); if (text !== undefined) el.textContent = text; if (className) el.className = className; return el; }
+function stored(key,fallback) { try { const raw = localStorage.getItem('hltb-jp:' + key); return raw === null ? fallback : JSON.parse(raw); } catch { return fallback; } }
+const failedWrites = new Set();
+function save(key,value) { try { localStorage.setItem('hltb-jp:' + key,JSON.stringify(value)); failedWrites.delete(key); } catch { failedWrites.add(key); $('storage-status').hidden = false; $('storage-status').textContent = 'このブラウザーでは回答を保存できません。現在のページを開いている間だけ保持します。'; } }
+const savedAnswers = stored('selfcheck:v1',{});
+function validAnswers(value) { const valid = {}; if (value && typeof value === 'object' && !Array.isArray(value)) for (const question of QUESTION_DEFINITIONS) if (['yes','no','na'].includes(value[question.id])) valid[question.id] = value[question.id]; return valid; }
+let answers = validAnswers(savedAnswers);
+/* 保存直前にも読み直し、別のタブで消した回答を復活させないようにします。 */
+function syncAnswers() {
+  if (failedWrites.has('selfcheck:v1')) return;
+  let raw; try { raw = localStorage.getItem('hltb-jp:selfcheck:v1'); } catch { return; }
+  if (raw === null) { answers = {}; return; }
+  try { answers = validAnswers(JSON.parse(raw)); } catch { answers = {}; }
+}
+let questions = [], profile = 'all', chapter = '', loadToken = 0;
+const profileSaved = stored('profile','all'); if (['all','foreign','japanese'].includes(profileSaved)) profile = profileSaved;
+function parseManifest(md) { return [...new Set([...md.matchAll(/\]\((book\/\d{2}-[^/)]+\.md)\)/g)].map(match => { try { return decodeURI(match[1]); } catch { return ''; } }).filter(path => path && !path.includes('..')))].sort((a,b) => a.localeCompare(b,'ja')); }
+function parseChapter(md,path) {
+  let section = null, entry = null;
+  const fields = {'費用':'cost','要点':'point','効果':'effect','根拠の区分':'grade','出典':'source','補足':'note'};
+  for (const raw of md.split(/\r?\n/)) {
+    const line = raw.trim(); let match;
+    if ((match = /^#\s+(\d+)\.\s+(.+)$/.exec(line))) { section = {n:match[1],title:match[2],entries:[]}; continue; }
+    if (!section) continue;
+    if ((match = /^###\s+(\d+)[.．、]\s*(.+)$/.exec(line))) { entry = {sec:section.n,n:match[1],title:match[2],chapter:section.title,path,cost:'',point:'',effect:'',grade:'',source:'',note:'',will:'',audience:''}; section.entries.push(entry); continue; }
+    if (entry && (match = /^<!--\s*費用タグ:\s*(.*?)\s*-->$/.exec(line))) { for (const pair of match[1].split(/\s+/)) { const [key,value] = pair.split('='); if (key === '継続') entry.will = value; if (key === '対象') entry.audience = value; } continue; }
+    if (entry && (match = /^-\s*(費用|要点|効果|根拠の区分|出典|補足)[：:]\s*(.*)$/.exec(line))) entry[fields[match[1]]] = match[2];
   }
-  for (const x of out){
-    x.cs = (COST_W.money[x.money] ?? 0) + (COST_W.time[x.time] ?? 0) + (COST_W.will[x.will] ?? 0);
-    x.ratio = x.level === '大' ? (x.cs === 0 ? '极高' : (x.cs <= 2 ? '高' : '一般'))
-            : x.level === '中' ? (x.cs === 0 ? '高' : '一般') : '一般';
-    x.dispute = /^争议/.test(x.note);
+  if (!section || !section.entries.length) throw new Error('本文の形式を確認できませんでした。'); return section;
+}
+function embeddedMap(value) { return Array.isArray(value) ? new Map(value.filter(item => item && typeof item.path === 'string' && typeof item.md === 'string').map(item => [item.path,item.md])) : new Map(value && typeof value === 'object' ? Object.entries(value) : []); }
+async function readText(path) { const controller = new AbortController(), timer = setTimeout(() => controller.abort(),20000); try { const response = await fetch(path.split('/').map(encodeURIComponent).join('/'),{cache:'no-cache',signal:controller.signal}); if (!response.ok) throw new Error('本文を取得できませんでした。'); return await response.text(); } finally { clearTimeout(timer); } }
+async function loadQuestions() {
+  const embedded = window.__CORPUS__, readme = embedded ? embedded.readme : await readText('README.md'); if (typeof readme !== 'string') throw new Error('目次を確認できませんでした。');
+  const paths = parseManifest(readme); if (!paths.length) throw new Error('章の目次がありません。');
+  const needed = new Set(QUESTION_DEFINITIONS.map(question => question.sec)), parts = embedded ? embeddedMap(embedded.parts) : null;
+  const sections = await Promise.all(paths.filter(path => needed.has(String(Number(path.slice(5,7))))).map(async path => { const md = parts ? parts.get(path) : await readText(path); if (typeof md !== 'string') throw new Error('オフライン版に必要な章がありません。'); return parseChapter(md,path); }));
+  const allEntries = sections.flatMap(section => section.entries), resolved = [], missing = [];
+  for (const definition of QUESTION_DEFINITIONS) { const entry = allEntries.find(item => item.sec === definition.sec && item.title.includes(definition.key)); if (entry) resolved.push({...definition,entry}); else missing.push(definition); }
+  if (missing.length) throw new Error('質問と本文の対応を確認できませんでした。');
+  return resolved;
+}
+function visibleQuestions() { return questions.filter(question => !(profile === 'japanese' && (question.foreign || question.entry.audience === '外国籍')) && (!chapter || question.sec === chapter)); }
+function handbookLink(entry) { return './?chapter=' + entry.sec + (profile === 'all' ? '' : '&profile=' + profile) + '#e-' + entry.sec + '-' + entry.n; }
+function updateProgress() { const visible = visibleQuestions(); $('prog').textContent = visible.filter(question => answers[question.id]).length + ' ／ ' + visible.length + '項目に回答済み'; }
+function chapterControls() {
+  const selected = $('check-chapter').value, available = new Map();
+  for (const question of questions) if (!(profile === 'japanese' && (question.foreign || question.entry.audience === '外国籍'))) available.set(question.sec,question.entry.chapter);
+  $('check-chapter').replaceChildren(); const all = node('option','すべての分野'); all.value = ''; $('check-chapter').append(all);
+  for (const [sec,title] of available) { const option = node('option',sec + '. ' + title); option.value = sec; $('check-chapter').append(option); }
+  chapter = available.has(selected) ? selected : ''; $('check-chapter').value = chapter;
+}
+function renderQuestions() {
+  const fragment = document.createDocumentFragment(); let previous = '';
+  for (const question of visibleQuestions()) {
+    if (previous !== question.sec) { fragment.append(node('h2',question.sec + '. ' + question.entry.chapter)); previous = question.sec; }
+    const group = node('div',undefined,'q'); group.dataset.question = question.id; const title = node('p',question.text); title.id = 'q-' + question.id; group.append(title);
+    const controls = node('div',undefined,'seg'); controls.setAttribute('role','group'); controls.setAttribute('aria-labelledby',title.id);
+    for (const [value,label] of [['yes','はい'],['no','いいえ'],['na','今は該当しない']]) { const button = node('button',label); button.type = 'button'; button.dataset.answer = question.id; button.dataset.value = value; button.setAttribute('aria-pressed',String(answers[question.id] === value)); controls.append(button); }
+    group.append(controls); const original = node('p',undefined,'origin'); original.append(document.createTextNode('対応する助言：')); const a = node('a',question.entry.title); a.href = handbookLink(question.entry); original.append(a); group.append(original); fragment.append(group);
   }
-  return out;
+  $('qs').replaceChildren(fragment); updateProgress();
 }
-const plain = s => s.replace(/\*\*/g, '').replace(/\\([*_])/g, '$1').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
-const esc = s => s.replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
-
-let ENTRIES = [];
-const find = (sec, key) => {
-  const hit = ENTRIES.find(x => x.sec === sec && x.title.includes(key));
-  if (!hit) console.error(`自查题找不到条目：第 ${sec} 节，标题含「${key}」`);
-  return hit;
-};
-
-/* 答案：只存本机浏览器，取不到也照常能用 */
-const STORE = 'selfcheck-v1';
-let ans = {};
-try { ans = JSON.parse(localStorage.getItem(STORE) || '{}'); } catch (e) {}
-const save = () => { try { localStorage.setItem(STORE, JSON.stringify(ans)); } catch (e) {} };
-const profile = () => Object.fromEntries(PROFILE.map(p => [p.id, ans['p:'+p.id]]));
-const profileDone = () => PROFILE.every(p => ans['p:'+p.id]);
-const qid = q => q.sec + ':' + q.key;
-const shown = (q, p) => q.entry && modOn(q.g.mod) && (!q.when || (profileDone() && q.when(p)));
-const activeQs = () => { const p = profile(); return GROUPS.flatMap(g => g.qs).filter(q => shown(q, p)); };
-
-function seg(name, opts, cur){
-  return `<div class="seg" role="group">` + opts.map(([v, t, cls]) =>
-    `<button type="button" data-k="${esc(name)}" data-v="${v}" class="${cls||''}" aria-pressed="${cur === v}">${t}</button>`).join('') + `</div>`;
+/* 出典は文字として処理し、HTTP・HTTPSのリンクだけを作ります。 */
+function sourceLinks(root,text) { const pattern = /<((?:https?:\/\/)[^<>\s]+)>|((?:https?:\/\/)[^\s<>]+)/g; let position = 0; for (const match of text.matchAll(pattern)) { root.append(document.createTextNode(text.slice(position,match.index))); const url = match[1] || match[2]; try { const checked = new URL(url); if (!['https:','http:'].includes(checked.protocol)) throw new Error(); const a = node('a',url.replace(/^https?:\/\//,'')); a.href = checked.href; a.target = '_blank'; a.rel = 'noopener noreferrer'; root.append(a); } catch { root.append(document.createTextNode(url)); } position = match.index + match[0].length; } root.append(document.createTextNode(text.slice(position))); }
+function resultCard(question) {
+  const entry = question.entry, article = node('article',undefined,'card'); article.append(node('h3',entry.title));
+  article.append(node('span','第' + entry.sec + '章','badge')); if (entry.grade) article.append(node('span','根拠：' + entry.grade,'badge')); if (entry.will) article.append(node('span','継続：' + entry.will,'badge'));
+  if (entry.point) article.append(node('p',entry.point)); if (entry.cost) article.append(node('p','費用：' + entry.cost));
+  const a = node('a','本文と条件を確認する'); a.href = handbookLink(entry); article.append(a);
+  const sources = node('details'); sources.append(node('summary','出典を確認する')); const body = node('div',undefined,'sources'); sourceLinks(body,entry.source); sources.append(body); article.append(sources); return article;
 }
-const YN = [['y','做到了','yes'],['n','没做到','no'],['s','跳过']];
-
-function renderAsk(){
-  const p = profile();
-  let h = `<h2 style="border-top:0;padding-top:0;margin-top:0">基本情况<small>决定问哪些题</small></h2>`;
-  for (const f of PROFILE) h += `<div class="q"><div class="txt">${f.text}</div>${seg('p:'+f.id, f.opts, ans['p:'+f.id])}</div>`;
-  h += `<div class="q"><div class="txt">想查哪几块<small>点一下取消，不查的整块不出题</small></div><div class="mods">`
-    + MODS.map(m => `<button type="button" data-mod="${m}" aria-pressed="${modOn(m)}">${m}</button>`).join('') + `</div></div>`;
-  for (const g of GROUPS){
-    const qs = g.qs.filter(q => shown(q, p));
-    if (!qs.length) continue;
-    h += `<h2>${g.name}</h2>`;
-    for (const q of qs) h += `<div class="q"><div class="txt">${esc(q.text)}${q.hint ? `<small>${esc(q.hint)}</small>` : ''}</div>${seg(qid(q), YN, ans[qid(q)])}</div>`;
-  }
-  document.getElementById('qs').innerHTML = h;
-  const qs = activeQs(), n = qs.filter(q => ans[qid(q)]).length;
-  document.getElementById('prog').textContent = profileDone() ? `已答 ${n} / ${qs.length} 题` : '先填基本情况';
+function renderResults(scroll = true) {
+  const visible = visibleQuestions(), yes = visible.filter(question => answers[question.id] === 'yes'), no = visible.filter(question => answers[question.id] === 'no'), na = visible.filter(question => answers[question.id] === 'na'), unanswered = visible.filter(question => !answers[question.id]);
+  $('verdict').textContent = no.length ? '「いいえ」と答えた助言を並べました。今の生活で必要なものを選び、本文の条件を確認してください。' : '今の表示範囲には、「いいえ」と答えた項目がありません。未回答や、今は該当しない項目は必要になったときに見直してください。';
+  $('sum').replaceChildren(); for (const [count,label] of [[yes.length,'確認・対応済み'],[no.length,'これから対応'],[na.length,'今は該当しない'],[unanswered.length,'未回答']]) { const tile = node('div',undefined,'tile'); tile.append(node('b',String(count)),node('span',label)); $('sum').append(tile); }
+  const todo = document.createDocumentFragment(); if (no.length) { todo.append(node('h2','これから確認・対応する助言')); for (const question of no) todo.append(resultCard(question)); } $('todo').replaceChildren(todo);
+  $('done-h').hidden = yes.length === 0; $('done').replaceChildren(); for (const question of yes) { const li = node('li'); const a = node('a',question.entry.title); a.href = handbookLink(question.entry); li.append(a); $('done').append(li); }
+  $('unanswered').replaceChildren(); if (unanswered.length) { $('unanswered').append(node('h2','まだ回答していない項目')); const ul = node('ul',undefined,'done-list'); for (const question of unanswered) ul.append(node('li',question.text)); $('unanswered').append(ul); }
+  $('ask').hidden = true; $('out').hidden = false; if (scroll) window.scrollTo({top:0});
 }
-
-const RANK = {'极高':0,'高':1,'一般':2}, LV = {'大':0,'中':1,'小':2}, GR = {A:0,B:1,C:2};
-function card(e, also){
-  const r = {'极高':'r3','高':'r2','一般':'r1'}[e.ratio];
-  const lens = e.lens ? `<span class="badge plain">口径 ${e.lens}</span>` : '';
-  const alsoH = also.length ? `<div class="also">相关做法：` + also.map(a =>
-    `<a href="./#e-${a.sec}-${a.n}">${esc(plain(a.title))}</a>`).join('；') + `</div>` : '';
-  return `<div class="card" id="c-${e.sec}-${e.n}">
-    <div class="h"><b>${esc(plain(e.title))}</b><a href="./#e-${e.sec}-${e.n}">第 ${e.sec} 节第 ${e.n} 条 →</a></div>
-    ${e.human ? `<div class="human">${esc(plain(e.human))}</div>` : ''}
-    <div class="badges"><span class="badge ${r}">性价比 ${e.ratio}</span><span class="badge ${e.grade}">证据 ${e.grade} 级</span><span class="badge plain">收益 ${e.level}</span>${lens}${e.dispute ? '<span class="badge warn">有争议</span>' : ''}</div>
-    <div class="cost">要花的：${esc(plain(e.cost))}</div>${alsoH}
-  </div>`;
+function themeLabel() { const dark = document.documentElement.classList.contains('dark'); $('theme').setAttribute('aria-pressed',String(dark)); $('theme').textContent = dark ? '明るい配色' : '暗い配色'; }
+async function init() {
+  const token = ++loadToken; $('status').hidden = false; $('status').textContent = '本文を読み込んでいます…';
+  try { const loaded = await loadQuestions(); if (token !== loadToken) return; questions = loaded; $('check-profile').value = profile; chapterControls(); renderQuestions(); $('status').hidden = true; $('ask').hidden = false; window.Selfcheck.questions = questions; }
+  catch { if (token !== loadToken) return; $('status').replaceChildren(node('p',location.protocol === 'file:' && !window.__CORPUS__ ? 'このファイルだけでは本文を読み込めません。オンライン版か、本文を含むオフライン版をご利用ください。' : '本文を読み込めませんでした。通信状態と本文の更新状況を確認し、もう一度お試しください。')); const retry = node('button','もう一度読み込む'); retry.id = 'retry'; retry.type = 'button'; retry.addEventListener('click',init); $('status').append(retry); }
 }
-/* 没做到的事按「要不要改习惯」分三堆：成本标签里的毅力一项直接决定 */
-const PILES = [
-  {will:'否', name:'一次办完就行', sub:'做一次或者记住就够，不用改习惯'},
-  {will:'些', name:'要改一个习惯', sub:'要忍一点不适，坚持几周就成了习惯'},
-  {will:'是', name:'要长期坚持', sub:'和惯性长期对着干，最难，挑一件慢慢来'},
-];
-const WILL = {'否':0,'些':1,'是':2};
-const byValue = (a, b) => RANK[a.entry.ratio] - RANK[b.entry.ratio] || LV[a.entry.level] - LV[b.entry.level]
-  || WILL[a.entry.will] - WILL[b.entry.will] || GR[a.entry.grade] - GR[b.entry.grade] || a.entry.cs - b.entry.cs;
-function renderOut(){
-  const qs = activeQs();
-  const no = qs.filter(q => ans[qid(q)] === 'n').sort(byValue), yes = qs.filter(q => ans[qid(q)] === 'y');
-  const answered = no.length + yes.length;
-
-  // 各块做到的比例，只算答了「做到 / 没做到」的题，跳过的不进分母
-  const groups = GROUPS.map(g => {
-    const y = yes.filter(q => q.g === g).length, n = no.filter(q => q.g === g).length;
-    return {g, y, t:y + n, pct: y + n ? y / (y + n) : 1};
-  }).filter(r => r.t).sort((a, b) => a.pct - b.pct || b.t - a.t);
-  document.getElementById('bars').innerHTML = groups.map(r =>
-    `<div class="hbar" title="${esc(r.g.name)}：答了 ${r.t} 题，做到 ${r.y} 项"><span class="nm">${esc(r.g.name)}</span>`
-    + `<span class="tr"><span class="fl" style="display:block;width:${(r.pct * 100).toFixed(0)}%"></span></span>`
-    + `<span class="v">${r.y} / ${r.t}</span></div>`).join('');
-
-  const easy = no.filter(q => q.entry.will === '否'), free = easy.filter(q => q.entry.money === '0');
-  const good = no.filter(q => q.entry.ratio !== '一般'), disp = no.filter(q => q.entry.dispute);
-  const weak = groups.find(r => r.t >= 2 && r.pct < 1);
-  let v = `你答了 ${answered} 题，做到 <b>${yes.length}</b> 项，没做到 <b>${no.length}</b> 项。`;
-  if (!no.length) v += '书里这些事你都做到了。';
-  if (weak) v += `漏得最多的是「${esc(weak.g.name)}」，${weak.t} 项里做到 ${weak.y} 项。`;
-  if (easy.length) v += `没做到的里有 <b>${easy.length}</b> 项一次办完就行，不用改习惯` + (free.length ? `，其中 ${free.length} 项不花钱。` : '。');
-  if (disp.length) v += `有 ${disp.length} 项证据有争议，先看原条目的备注再决定。`;
-  document.getElementById('verdict').innerHTML = v;
-
-  document.getElementById('sum').innerHTML =
-    `<div class="tile"><b>${answered ? Math.round(yes.length / answered * 100) : 0}%</b><span>答过的题里做到的比例</span></div>` +
-    `<div class="tile"><b>${no.length}</b><span>还没做到</span></div>` +
-    `<div class="tile r3"><b>${good.length}</b><span>其中性价比高或极高</span></div>` +
-    `<div class="tile r2"><b>${easy.length}</b><span>其中一次办完就行</span></div>`;
-
-  // 先做这三件：性价比最高的排前；同档里先挑不用改习惯的
-  const top = no.slice(0, 3);
-  const alsoOf = q => (q.also || []).map(a => find(a.sec, a.key)).filter(Boolean);
-  let h = '';
-  if (top.length) h += `<h2>先做这${top.length === 3 ? '三' : top.length === 2 ? '两' : '一'}件<small>没做到的里性价比最高的</small></h2><ol class="top3">`
-    + top.map(q => `<li><a href="#c-${q.entry.sec}-${q.entry.n}">${esc(plain(q.entry.title))}</a> <span class="why">性价比${q.entry.ratio}，证据 ${q.entry.grade} 级，${PILES.find(p => p.will === q.entry.will)?.name ?? ''}</span></li>`).join('') + '</ol>';
-  for (const p of PILES){
-    const list = no.filter(q => q.entry.will === p.will);
-    if (!list.length) continue;
-    h += `<h2>${p.name}（${list.length} 项）<small>${p.sub}</small></h2>` + list.map(q => card(q.entry, alsoOf(q))).join('');
-  }
-  document.getElementById('todo').innerHTML = h;
-  document.getElementById('done').innerHTML = yes.map(q =>
-    `<li><a href="./#e-${q.entry.sec}-${q.entry.n}">${esc(plain(q.entry.title))}</a></li>`).join('');
-  document.getElementById('done-h').hidden = !yes.length;
-}
-
-function show(which){
-  document.getElementById('ask').hidden = which !== 'ask';
-  document.getElementById('out').hidden = which !== 'out';
-  scrollTo(0, 0);
-}
-
-document.getElementById('qs').addEventListener('click', ev => {
-  const mb = ev.target.closest('button[data-mod]');
-  if (mb) { ans['mod:' + mb.dataset.mod] = modOn(mb.dataset.mod) ? 'off' : undefined; save(); renderAsk(); return; }
-  const b = ev.target.closest('button[data-k]'); if (!b) return;
-  ans[b.dataset.k] = ans[b.dataset.k] === b.dataset.v ? undefined : b.dataset.v;
-  save(); renderAsk();
+$('qs').addEventListener('click',event => { const button = event.target.closest('button[data-answer]'); if (!button) return; const id = button.dataset.answer, value = button.dataset.value; syncAnswers(); answers[id] = value; save('selfcheck:v1',answers); renderQuestions(); });
+$('check-profile').addEventListener('change',() => { profile = $('check-profile').value; save('profile',profile); chapterControls(); renderQuestions(); });
+$('check-chapter').addEventListener('change',() => { chapter = $('check-chapter').value; renderQuestions(); });
+$('go').addEventListener('click',() => { syncAnswers(); renderResults(); });
+$('reset').addEventListener('click',() => { answers = {}; save('selfcheck:v1',answers); renderQuestions(); });
+$('back').addEventListener('click',() => { $('out').hidden = true; $('ask').hidden = false; renderQuestions(); window.scrollTo({top:0}); });
+$('theme').addEventListener('click',() => { const dark = document.documentElement.classList.toggle('dark'); try { localStorage.setItem('hltb-jp:theme',dark ? 'dark' : 'light'); } catch { /* 配色は現在のページに適用します。 */ } themeLabel(); });
+window.addEventListener('storage',event => {
+  try { if (event.storageArea !== localStorage) return; } catch { return; }
+  if (event.key !== null && !event.key.startsWith('hltb-jp:')) return;
+  if (event.key === null) failedWrites.clear(); else failedWrites.delete(event.key.slice('hltb-jp:'.length));
+  if (event.key === null || event.key === 'hltb-jp:selfcheck:v1') syncAnswers();
+  if (event.key === null || event.key === 'hltb-jp:profile') { const value = stored('profile','all'); profile = ['all','foreign','japanese'].includes(value) ? value : 'all'; $('check-profile').value = profile; chapterControls(); }
+  if (event.key === null || event.key === 'hltb-jp:theme') { let theme = null; try { theme = localStorage.getItem('hltb-jp:theme'); } catch { /* 現在の配色を維持します。 */ } document.documentElement.classList.toggle('dark',theme ? theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches); themeLabel(); }
+  if (questions.length) { if (!$('out').hidden) renderResults(false); else renderQuestions(); }
 });
-document.getElementById('go').addEventListener('click', () => {
-  if (!profileDone()) { document.getElementById('prog').textContent = '先把基本情况三题填上'; return; }
-  renderOut(); show('out');
-});
-document.getElementById('back').addEventListener('click', () => show('ask'));
-document.getElementById('reset').addEventListener('click', () => { ans = {}; save(); renderAsk(); });
-
-(async function init(){
-  const status = document.getElementById('status');
-  try {
-    const EMBED = window.__CORPUS__;
-    const readme = EMBED ? EMBED.readme : await (await fetch('README.md', {cache:'no-cache'})).text();
-    const files = [...new Set(Array.from(readme.matchAll(/\]\((book\/[^)]+\.md)\)/g), m => m[1]))]
-      .filter(f => GROUPS.some(g => g.qs.some(q => f.startsWith(`book/${String(q.sec).padStart(2,'0')}-`))));
-    const parts = await Promise.all(files.map(async f => EMBED ? EMBED.parts[f] : (await fetch(f, {cache:'no-cache'})).text()));
-    ENTRIES = parse(parts.join('\n\n'));
-    for (const g of GROUPS) for (const q of g.qs) { q.g = g; q.entry = find(q.sec, q.key); }
-    status.remove();
-    renderAsk(); show('ask');
-  } catch (err) {
-    status.textContent = location.protocol === 'file:'
-      ? '这个页面要通过 http 打开才能读取正文。'
-      : `读取正文失败：${err.message}`;
-  }
-})();
+window.Selfcheck = {parseManifest,parseChapter,loadQuestions,questions:[]};
+themeLabel(); init();
 </script>
 </body>
 </html>
