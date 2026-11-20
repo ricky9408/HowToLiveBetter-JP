@@ -47,6 +47,7 @@ function rewriteLinks(md, src) {
 mkdirSync(dirname(out), { recursive: true });
 const markdownPath = resolve(ROOT, 'dist/pdf-build.md');
 const typstPath = resolve(ROOT, 'dist/pdf-build.typ');
+mkdirSync(dirname(markdownPath), { recursive: true });
 writeFileSync(markdownPath, pages.map(page => rewriteLinks(page.md, page.src).replace(/<!--[\s\S]*?-->/g, '').trim()).join('\n\n'));
 const run = (command, args) => {
   try { return execFileSync(command, args, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }); }
